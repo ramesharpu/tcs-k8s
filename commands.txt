@@ -1,0 +1,37 @@
+run command:
+============
+kubectl run nginx-demo --image=nginx
+
+get:
+====
+kubectl get pods
+-----------------
+NAME         READY   STATUS    RESTARTS   AGE
+nginx-demo   1/1     Running   0          2m52s
+
+ kubectl get pods -o wide
+ ---------------------------
+NAME         READY   STATUS    RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
+nginx-demo   1/1     Running   0          3m17s   10.244.1.2   minikube   <none>           <none>
+
+delete:
+========
+to get the pods
+------------------
+$ kubectl get pods
+NAME         READY   STATUS    RESTARTS   AGE
+nginx-demo   1/1     Running   0          4m37s
+
+to delete the pod:
+-------------------
+rames@ramesh-pc MINGW64 ~
+$ kubectl delete pods nginx-demo
+pod "nginx-demo" deleted
+
+rames@ramesh-pc MINGW64 ~
+$ kubectl get pods
+No resources found in default namespace.
+
+apply:
+======
+kubectl apply -f deployment.yaml
